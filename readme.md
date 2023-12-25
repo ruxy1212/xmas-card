@@ -1,0 +1,3 @@
+# X-Mas Greeting Card
+
+This is a small project built with CSS and Javascript, it displays a digital version of the traditional greeting card. It works by using a PHP script to generate links for each recipient, and a CSV file to specify the relationship and name of each recipient. When the recipients click on the link, it creates a sort-of personalized greeting card for them. When they tap on the card, it flips ope and also flips close.

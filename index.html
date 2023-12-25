@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Happy XMas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/preloader.css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" language="javascript">
+	rotate = 1;
+	function hide_preloader() { //DOM
+    rotate = 0;
+    $("#preloader").fadeOut(1000);
+	}
+
+	$(document).ready(function(){
+		function anim(){ $("#preloader_image").animate({left:'-1400px'}, 8000,
+		function(){ $("#preloader_image").animate({left:'0px'}, 2000 ); if(rotate==1){ anim();}  } );
+		}
+		anim();
+	});
+</script>
+  <link rel="shortcut icon" href="assets/img/icon.jpg" type="image/jpeg">
+  <meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Digital Greeting Card for Christmas" />
+	<meta property="og:description" content="Click to open card." />
+	<meta property="og:url" content="https://ctsnnsquorra.com" />
+	<meta property="og:site_name" content="Digital Greeting Card" />
+	<meta property="og:image" content="https://ctsnnsquorra.com/assets/img/og_image.PNG" />
+	<meta property="og:image:type" content="image/jpeg" />
+</head>
+<body onload="hide_preloader();">	
+  <div id="preloader">
+    <div>
+      <img src="loading.jpg" id="preloader_image" >
+    </div>
+  </div>
+<p>Click card to open</p>
+<div class="card__container js-card-opener">
+  <div class="card">
+    <div class="card__panel card__panel--front p-relative">
+      <div class="__front-text-h">
+        <div>
+          <h1>Merry Christmas</h1>
+          <img src="assets/img/christmas1.png" alt="Line">
+          <p class="date_left">And a Prosperous New Year in 6 days 14 hours 34 minutes 13 seconds</p>
+        </div>
+      </div>
+    </div>
+    <div class="card__panel card__panel--inside-left">
+    </div>
+    <div class="card__panel card__panel--inside-right">
+      <p>To</p>
+      <h3 class="main--name">Ruxy1212</h3>
+      <img src="assets/img/christmas2.png" alt="">
+      <p class="main--text">
+        To myself, a no-one who knows me best and loves me anyway, wishing myself a Christmas be filled with the love and joy the season will bring into my life.
+        <br><br>
+        From <span class="main--author">Russell</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="last__div">
+  <p>Use PC screen for better view!</p>
+</div>  
+<script  src="assets/js/script.js"></script>
+    <script>
+      var calcNewYear = setInterval(function(){
+        date_future = new Date(new Date().getFullYear() +1, 0, 1);
+        date_now = new Date();
+
+        seconds = Math.floor((date_future - (date_now))/1000);
+        minutes = Math.floor(seconds/60);
+        hours = Math.floor(minutes/60);
+        days = Math.floor(hours/24);
+        
+        hours = hours-(days*24);
+        minutes = minutes-(days*24*60)-(hours*60);
+        seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
+        // And a Prosperous New Year in 6 days 
+        $(".date_left").text(`And A Prosperous New Year in ${days} day${pluralize(days)} ${hours} hour${pluralize(hours)} ${minutes} minute${pluralize(minutes)} ${seconds} second${pluralize(seconds)}`);
+      },1000);
+      function pluralize(num){
+        return (num>1)?'s':'';
+      }
+
+      function getQueryParamsWithoutValues() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let paramsWithoutValues = '';
+
+        for (const [key, value] of urlParams.entries()) {
+          if (!value) {
+            paramsWithoutValues = key;
+          }
+        }
+        return paramsWithoutValues;
+      }
+
+      function parseCSVContent(csvContent) {
+        return csvContent.split('\n').map(row => row.split(','));
+      }
+
+      function searchAndReturnRow(data, searchValue) {
+        for (let i = 1; i < data.length; i++) {
+          if (data[i][2] === searchValue) {
+            return data[i];
+          }
+        }
+        return false;
+      }
+
+      function readCSVFile(fileName, callback) {
+        fetch(fileName)
+          .then(response => response.text())
+          .then(data => {
+            callback(data);
+          })
+          .catch(error => {
+            console.error('Error reading the file:', error);
+          });
+      }
+
+      // Example usage
+      readCSVFile('data.csv', function (contents) {
+        const params = getQueryParamsWithoutValues();
+        if(params && contents){
+          const data = parseCSVContent(contents);
+          const res = searchAndReturnRow(data, params);
+          if(res){ //main--author
+            console.log([res[0], res[1]]);
+
+          }
+        }
+      });
+
+      // Get the parameters and log them
+      
+      //console.log(params);
+
+    </script>
+</body>
+</html>

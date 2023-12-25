@@ -1,0 +1,176 @@
+@font-face{
+  font-family:'font1';
+  src: url('../fnt/bluesky.otf');
+}
+@font-face{
+  font-family:'font2';
+  src: url('../fnt/hand1.otf');
+}
+@font-face{
+  font-family:'font3';
+  src: url('../fnt/lovey.otf');
+}
+@font-face{
+  font-family:'font4';
+  src: url('../fnt/script.otf');
+}
+@font-face{
+  font-family:'font5';
+  src: url('../fnt/signature.ttf');
+}
+body {
+  text-align: center;
+  background: #a694f6;
+  margin: 0;
+}
+
+.p-relative{
+  position: relative;
+}
+
+.__front-text-h{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.__front-text-h > div{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.__front-text-h > div h1 {
+  margin: 0;
+  line-height: 0.8;
+  font-family: 'font3', sans-serif;
+  color: #ed2100;
+}
+
+.__front-text-h > div p {
+  margin: 0 0 1rem;
+  line-height: 0.9;
+  font-family: 'font1';
+  color: #ed2100;
+  font-weight: lighter;
+
+}
+
+.__front-text-h > div img, .card__panel--inside-right img {
+  width: 100%;
+}
+
+.card__container {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 1400px;
+  transition: all 0.2s ease;
+}
+@media (min-width: 768px) {
+  .open .card__container {
+    transform: translate(0%, -50%);
+  }
+}
+
+.last__div {
+  position: absolute; 
+  bottom: 0;
+  width: 100%;
+}
+
+.last__div p {
+  color: white;
+}
+
+.card__panel p {
+  color: rgb(34, 34, 34);
+  /* color: rgb(58, 55, 214); */
+  font-family: 'font3', Arial, Helvetica, sans-serif;
+}
+
+body > p {
+  color: white;
+}
+
+.card {
+  max-width: 400px;
+  max-height: 400px;
+  width: 80vw;
+  height: 80vw;
+  transform-style: preserve-3d;
+  transform: rotateX(55deg);
+  transition: all 1s ease;
+  box-shadow: 2px 2px 5px black;
+}
+.open .card {
+  transform: rotateX(0deg);
+}
+.card__panel {
+  border: 1px solid rgb(241, 8, 8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  transition: all 1s ease;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+  transform-origin: left;
+  transform-style: preserve-3D;
+  transform: rotate3d(0, 1, 0, 0deg);
+}
+.card__panel--front {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  z-index: 1;
+  background-image: url(../img/crhistmas.jpg);
+  background-size: cover;
+}
+.open .card__panel--front {
+  transform: rotate3d(0, 1, 0, -170deg);
+}
+.card__panel--inside-left {
+  z-index: 0;
+  background-image: url(../img/HEADER-2.gif);
+  background-size: cover;
+  box-sizing: border-box;
+}
+.open .card__panel--inside-left {
+  transform: rotate3d(0, 1, 0, -170deg);
+}
+.card__panel--inside-right {
+  border-left: none;
+  background-image: url(../img/christmas3.jpg);
+  background-size: cover;
+  /* overflow: auto; */
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 6%;
+  box-sizing: border-box;
+}
+
+.card__panel--inside-right h3{
+  margin: 0;
+  color: rgb(58, 55, 214);
+  font-family: 'font4', Arial, Helvetica, sans-serif;
+  line-height: 0.8;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.card__panel--inside-right p.main--text{
+  font-size: 1.3rem;
+}
