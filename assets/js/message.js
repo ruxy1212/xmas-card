@@ -141,5 +141,17 @@ var spend_my_savings = [
         "Cheers to this incredible group! Wishing you all a Christmas filled with love, laughter, and the joy of each other's company.",
         "Merry Christmas to everyone in this amazing group. May the holiday season be filled with shared happiness for everyone.",
         "Warmest wishes for a festive Christmas and a New Year that brings us closer together, celebrating the bonds we share."
+    ],
+    [
+        "To my favorite partner in holiday mischief, may our Christmas be filled with laughter, love, and the joy only family can bring.",
+        "Merry Christmas to the one who shares a lifetime of memories and a heart full of love. Grateful to call you my bro.",
+        "Wishing my dear brother a Christmas as bright and joyful as the bond we share. Here's to more love and laughter in the coming year.",
+        "In the melody of Christmas carols, I hear the echoes of our shared laughter. Merry Christmas to my forever bro and confidant.",
+        "To the one who knows all my quirks and loves me anyway, may our Christmas be filled with the warmth of family and the joy of being together.",
+        "Merry Christmas, dear sir! Here's to a holiday season wrapped in the love and traditions that make our family special.",
+        "Wishing my partner-in-crime a Christmas filled with the magic of childhood and the joy of being surrounded by family. Cheers to us!",
+        "Merry Christmas to the one who has seen me at my best and worst. May our holiday season be filled with understanding, forgiveness, and love.",
+        "In the symphony of family, you're the note that makes my heart sing. Wishing you a Christmas as beautiful as our bond.",
+        "Merry Christmas, bro! May our holiday season be filled with the warmth of shared memories and the promise of many more to come."
     ]
 ];
