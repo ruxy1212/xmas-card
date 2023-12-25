@@ -58,7 +58,7 @@ body {
   font-family: 'font1';
   color: #ed2100;
   font-weight: lighter;
-
+  font-size: 1rem !important;
 }
 
 .__front-text-h > div img, .card__panel--inside-right img {
