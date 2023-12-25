@@ -56,8 +56,8 @@
       <p>To</p>
       <h3 class="main--name">Ruxy1212</h3>
       <img src="assets/img/christmas2.png" alt="">
-      <p class="main--text">
-        To myself, a no-one who knows me best and loves me anyway, wishing myself a Christmas be filled with the love and joy the season will bring into my life.
+      <p>
+        <span class="main--text">To myself, a no-one who knows me best and loves me anyway, wishing myself a Christmas be filled with the love and joy the season will bring into my life.</span>
         <br><br>
         From <span class="main--author">Russell</span>
       </p>
@@ -69,6 +69,7 @@
   <p>Use PC screen for better view!</p>
 </div>  
 <script  src="assets/js/script.js"></script>
+<script src="assets/js/message.js"></script>
     <script>
       var calcNewYear = setInterval(function(){
         date_future = new Date(new Date().getFullYear() +1, 0, 1);
@@ -132,8 +133,11 @@
           const data = parseCSVContent(contents);
           const res = searchAndReturnRow(data, params);
           if(res){ //main--author
+            console.log(spend_my_savings[res[1]].length*Math.random());
+            $('span.main--text').text(spend_my_savings[res[1]][Math.floor(spend_my_savings[res[1]].length*Math.random())]);
+            $('span.main--author').text('Russell');
+            $('h3.main--name').text(res[0].replaceAll('"', ''));
             console.log([res[0], res[1]]);
-
           }
         }
       });

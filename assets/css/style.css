@@ -94,6 +94,7 @@ body {
   color: rgb(34, 34, 34);
   /* color: rgb(58, 55, 214); */
   font-family: 'font3', Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
 }
 
 body > p {
