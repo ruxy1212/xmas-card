@@ -1,4 +1,4 @@
-var spend_my_savings = [
+const spend_my_savings = [
     [
         "In the warmth of this festive season, my heart beats only for you. Merry Christmas, my love.",
         "Under the mistletoe or across the miles, you're the gift I cherish. Wishing us a magical Christmas together.",
