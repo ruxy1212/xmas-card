@@ -161,6 +161,28 @@ body > p {
   flex-direction: column;
   padding: 6%;
   box-sizing: border-box;
+  position: relative;
+}
+
+.after__new--year{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/QBkTs.gif);
+  background-size: cover;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 6%;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.after__new--year.active{
+  display: flex;
 }
 
 .card__panel--inside-right h3{
@@ -170,6 +192,43 @@ body > p {
   line-height: 0.8;
   font-size: 1.5rem;
   text-transform: uppercase;
+}
+
+.after__new--year h1{
+  margin: 0;
+  color: white;
+  font-family: 'font3', Arial, Helvetica, sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+.after__new--year h3{
+  color: bisque;
+}
+
+.after__new--year .pulsate {
+  /* font-size: 24px; */
+  animation: pulsate infinite;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.__cover__name{
+  font-family: 'font4', Arial, Helvetica, sans-serif;
+  color: rgb(58, 55, 214);
+  line-height: 0.8;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .card__panel--inside-right p.main--text{
