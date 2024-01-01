@@ -207,7 +207,6 @@ body > p {
 }
 
 .after__new--year .pulsate {
-  /* font-size: 24px; */
   animation: pulsate infinite;
 }
 

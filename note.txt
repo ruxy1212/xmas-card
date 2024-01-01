@@ -162,3 +162,156 @@ Merry Christmas, dear friend! May the spirit of the season wrap you in love and 
 Wishing my wonderful friend a Christmas filled with the warmth of family, the joy of friendship, and the magic of the season.
 To the friend who knows me best and loves me anyway, may your Christmas be filled with the love and joy you bring into my life.
 Merry Christmas to the one whose friendship is the greatest gift of all. May your holiday season be as special as you are.
+
+
+
+var file = "C:/Users/HP/Downloads/text-update-from-csv/pp/names.csv";
+var dest = "C:/Users/HP/Downloads/text-update-from-csv/pp/out/";
+
+function getCSV(csv) {
+    var file = new File(csv);
+    file.open('r');
+    var content = file.read();
+    file.close();
+    return content;
+}
+
+function replaceTxt(doc, tgt, txt) {
+    var layers = doc.layers;
+    for (var i = 0; i < layers.length; i++) {
+        var layer = layers[i];
+        if (layer.name === tgt && layer.kind == 'LayerKind.TEXT'){            
+            layer.textItem.contents = txt;
+        }
+    }
+}
+
+function SaveGIF(file) {  
+    var sfwOptions = new ExportOptionsSaveForWeb();   
+    sfwOptions.format = SaveDocumentType.COMPUSERVEGIF;
+    sfwOptions.transparency = 1;  
+    sfwOptions.includeProfile = false;   
+    sfwOptions.interlaced = 1;   
+    sfwOptions.optimized = true;
+    sfwOptions.ColorReductionType = ColorReductionType.SELECTIVE;
+    sfwOptions.dither = Dither.NONE;  
+    sfwOptions.ditherAmount = 80;
+    sfwOptions.webSnap = 0;
+    sfwOptions.colors = 128; 
+    activeDocument.exportDocument(file, ExportType.SAVEFORWEB, sfwOptions);  
+}
+
+function main() {
+    if (!app.activeDocument) {
+        alert("No document opened yet!");
+        return;
+    }
+
+    var csv = getCSV(file);
+    var data = csv.split("\n");
+    if (!csv) {
+        alert("CSV file is empty or not found.");
+        return;
+    }
+
+    var doc = app.activeDocument;
+
+    // Loop through each line in the CSV
+    for (var i = 1; i < 5; i++) {
+        var values = data[i].split(",");
+        var tgt = values[1];
+        var txt = values[2];
+
+        replaceTxt(doc, tgt, txt);
+        var save = File(dest+txt+".gif");
+        SaveGIF(save);  
+        // alert(JSON.stringify(doc));
+        // Record a new action
+        // var actionName = "ReplaceText_" + layerName;
+        // var newAction = doc.actions.add(actionName);
+
+        // Add steps to the action (save as GIF)
+        // newAction.batchPlay([
+        //     { "_obj": "save", "_target": [{ "_ref": "current", "_enum": "ordinal", "_value": "ordinal" }], "as": { "_obj": "GIFCompUser" }, "in": { "_path": outputFolder, "_kind": "local" }, "options": { "_obj": "GIFOptions", "palette": { "_enum": "palette", "_value": "adaptive" }, "colors": 256, "lossy": 0, "dither": Dither.NONE, "webSnap": 0, "transparency": false, "transparencyDither": Dither.NONE, "transparencyAmount": 100 } }
+        // ]);
+        alert('doing'+i);
+    }
+
+    alert("Script completed successfully!");
+}
+
+// Run the main function
+main();
+
+
+
+
+
+var win = new Window("window{text:'Progress',bounds:[100,100,400,150],bar:Progressbar{bounds:[20,20,280,31] , value:0,maxvalue:100}};");
+win.show();
+
+for(...){
+    //do work here
+
+    //update progress
+    win.bar.value = ...;
+}
+
+win.close();
+
+
+
+
+
+
+
+// function main() {
+//     // Check if there is an active document
+//     if (!app.activeDocument) {
+//         alert("Open a document before running the script.");
+//         return;
+//     }
+
+//     // Open the CSV file
+//     var csvContent = readCSV(csvFilePath);
+//     var csvLines = csvContent.split("\n");
+
+//     // Get the active Photoshop document
+//     var doc = app.activeDocument;
+
+//     // Alert document properties
+//     alert("Document Name: " + doc.name);
+//     alert("Document Layers Count: " + doc.layers.length);
+
+//     // Loop through each line in the CSV
+//     for (var i = 1; i < csvLines.length; i++) { // Start from index 1 to skip the header
+//         var csvValues = csvLines[i].split(",");
+//         var layerName = csvValues[0];
+//         var replacementText = csvValues[1];
+
+//         // Duplicate the document
+//         var duplicateDoc = doc.duplicate();
+//         app.activeDocument = duplicateDoc;
+
+//         // Replace text in the duplicate document
+//         replaceTextLayer(duplicateDoc, layerName, replacementText);
+
+//         // Save as GIF
+//         var gifOptions = new GIFSaveOptions();
+//         gifOptions.colors = 256;
+//         gifOptions.dither = Dither.NONE;
+//         gifOptions.transparency = false;
+//         gifOptions.interlaced = false;
+
+//         duplicateDoc.saveAs(new File(outputFolder + layerName + ".gif"), gifOptions);
+
+//         // Close the duplicate document without saving changes to the original
+//         duplicateDoc.close(SaveOptions.DONOTSAVECHANGES);
+//         alert('done'+i);
+//     }
+
+//     alert("Script completed successfully!");
+// }
+
+// // Run the main function
+// main();
